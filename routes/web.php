@@ -52,6 +52,7 @@ Route::get('/test', function() {
 });
 
 Route::get('/form',[RegisterController::class, 'index']);
+Route::post('/register',[RegisterController::class, 'register']);
 
 /*-----For Controller Routes-----*/
 /*

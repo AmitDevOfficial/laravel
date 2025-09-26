@@ -10,23 +10,50 @@
     <h1>Register</h1>
 
    <div class="container">
-            <form action="">
+            
+            {{-- This is for testing our validation is visible or not
+            @php
+               print_r($errors->all());
+            @endphp --}}
+
+            <form action="{{url('/register')}}" method="post">
+                @csrf
                 <div class="row d-block">
                     <div class="col-md-3">
                         <label for="">Name</label>
-                        <input type="text" name="fullName" class="form-control" >
+                        <input type="text" name="fullName" value="{{old('fullName')}}" class="form-control" >
+                        <span class="text-danger">
+                            @error('fullName')
+                                {{$message}}                            
+                            @enderror
+                        </span>
                     </div>
                     <div class="col-md-3">
                         <label for="">Email</label>
-                        <input type="text" name="fullName" class="form-control">
+                        <input type="email" name="email" value="{{old('email')}}" class="form-control">
+                        <span class="text-danger">
+                            @error('email')
+                                {{$message}}                            
+                            @enderror
+                        </span>
                     </div>
                     <div class="col-md-3">
                         <label for="">Password</label>
-                        <input type="text" name="fullName" class="form-control" >
+                        <input type="text" name="emppass" value="{{old('emppass')}}" class="form-control" >
+                        <span class="text-danger">
+                            @error('emppass')
+                                {{$message}}                            
+                            @enderror
+                        </span>
                     </div>
                     <div class="col-md-3">
                         <label for="">Mobile No :</label>
-                        <input type="text" name="fullName" class="form-control" >
+                        <input type="text" name="mobile" value="{{old('mobile')}}" class="form-control" >
+                        <span class="text-danger">
+                            @error('mobile')
+                                {{$message}}                            
+                            @enderror
+                        </span>
                     </div>
                     <div class="col-md-3 my-3">
                         <input type="submit" value="Register" class="form-control bg-success text-white" >
