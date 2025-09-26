@@ -53,6 +53,7 @@ Route::get('/test', function() {
 
 Route::get('/form',[RegisterController::class, 'index']);
 Route::post('/register',[RegisterController::class, 'register']);
+Route::get('/view',[RegisterController::class, 'view_employee']);
 
 /*-----For Controller Routes-----*/
 /*
