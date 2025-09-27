@@ -54,6 +54,7 @@ Route::get('/test', function() {
 Route::get('/form',[RegisterController::class, 'index']);
 Route::post('/register',[RegisterController::class, 'register']);
 Route::get('/view',[RegisterController::class, 'view_employee']);
+Route::get('/edit/{empId}',[RegisterController::class, 'edit_employee']);
 
 /*-----For Controller Routes-----*/
 /*

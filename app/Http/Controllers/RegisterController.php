@@ -55,4 +55,15 @@ class RegisterController extends Controller
         // die;
         return view('view-data')->with($data);
     }
+
+    public function edit_employee($empId) {
+        $employee = Employee::find($empId);
+
+        if(!is_null($employee)){
+            $data = compact('employee');    
+            return view('register')->with($data);
+        }else{
+            return redirect('view');
+        }
+    }
 }

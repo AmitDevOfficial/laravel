@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Registration</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   </head>
   <body>
@@ -60,13 +60,12 @@
                     </div>
                 </div>
             </form> --}}
-            
             <form action="{{url('/register')}}" method="post">
                 @csrf
                 <div class="row d-block">
                     <div class="col-md-3">
                         <label for="">Name</label>
-                        <input type="text" name="fullName" value="{{old('fullName')}}" class="form-control" >
+                        <input type="text" name="fullName" value="{{old('fullName',$employee->fullName ?? ' ')}}" class="form-control" >
                         <span class="text-danger">
                             @error('fullName')
                                 {{$message}}                            
@@ -75,7 +74,7 @@
                     </div>
                     <div class="col-md-3">
                         <label for="">Email</label>
-                        <input type="email" name="email" value="{{old('email')}}" class="form-control">
+                        <input type="email" name="email" value="{{old('email',$employee->email ?? ' ')}}" class="form-control">
                         <span class="text-danger">
                             @error('email')
                                 {{$message}}                            
@@ -84,7 +83,7 @@
                     </div>
                     <div class="col-md-3">
                         <label for="">Address</label>
-                        <input type="text" name="address" value="{{old('address')}}" class="form-control" >
+                        <textarea type="text" name="address" class="form-control" >{{old('address',$employee->address ?? ' ')}}</textarea>
                         <span class="text-danger">
                             @error('address')
                                 {{$message}}                            
@@ -93,7 +92,7 @@
                     </div>
                     <div class="col-md-3">
                         <label for="">Date of Join</label>
-                        <input type="date" name="doj" value="{{old('doj')}}" class="form-control" >
+                        <input type="date" name="doj" value="{{old('doj',$employee->doj ?? ' ')}}" class="form-control" >
                         <span class="text-danger">
                             @error('doj')
                                 {{$message}}                            
@@ -102,9 +101,9 @@
                     </div>
                     <div class="col-md-3">
                         <label for="">Gender</label>
-                        <input type="radio" name="gender" value="M" >Male
-                        <input type="radio" name="gender" value="F" >Female
-                        <input type="radio" name="gender" value="O" >Others
+                        <input type="radio" name="gender" value="M" {{!empty($employee->gender) && $employee->gender =='M' ? 'checked' :  ''}}>Male
+                        <input type="radio" name="gender" value="F" {{!empty($employee->gender) && $employee->gender =='F' ? 'checked' :  ''}}>Female
+                        <input type="radio" name="gender" value="O" {{!empty($employee->gender) && $employee->gender =='O' ? 'checked' :  ''}}>Others
                         
                     </div>
                     <div class="col-md-3 my-3">

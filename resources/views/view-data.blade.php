@@ -11,6 +11,7 @@
     
     <div class="container">
         <h1 class="text-center my-5">View Data</h1>
+            <a href="{{url('/form')}}" class="btn btn-primary my-3">Add</a>
         <table class="table">
             <thead>
                 <tr>
@@ -21,6 +22,7 @@
                     <th>Date of Join</th>
                     <th>Gender</th>
                     <th>Status</th>
+                    <th>Action</th>
                 </tr>
             </thead>
 
@@ -33,7 +35,17 @@
                     <td>{{$val['address']}}</td>
                     <td>{{$val['doj']}}</td>
                     <td>{{$val['gender']}}</td>
-                    <td>{{$val['status']}}</td>
+                    <td>
+                        @if($val['status']=='1')
+                            <span class="badge bg-success text-white">Active</span>
+                        @else
+                            <span class="badge bg-danger text-white">UnActive</span>
+                        @endif
+                    </td>
+                    <td>
+                        <a href="{{url('/edit',['empId'=>$val['id']])}}" class="btn btn-success">Update</a>
+                        <a href="{{url('/delete')}}" class="btn btn-danger">Delete</a>
+                    </td>
                 </tr>
                 @endforeach
             </thead>
