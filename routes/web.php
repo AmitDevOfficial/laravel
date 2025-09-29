@@ -55,6 +55,8 @@ Route::get('/form',[RegisterController::class, 'index']);
 Route::post('/register',[RegisterController::class, 'register']);
 Route::get('/view',[RegisterController::class, 'view_employee']);
 Route::get('/edit/{empId}',[RegisterController::class, 'edit_employee']);
+Route::post('/update/{empId}',[RegisterController::class, 'update_employee']);
+Route::get('/delete/{empId}',[RegisterController::class, 'delete_employee']);
 
 /*-----For Controller Routes-----*/
 /*

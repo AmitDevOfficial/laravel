@@ -60,7 +60,9 @@
                     </div>
                 </div>
             </form> --}}
-            <form action="{{url('/register')}}" method="post">
+
+
+            <form action="{{url(!empty($employee->id) && $employee->id ? '/update/'.$employee->id : '/register')}}" method="post">
                 @csrf
                 <div class="row d-block">
                     <div class="col-md-3">

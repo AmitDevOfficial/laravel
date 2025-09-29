@@ -66,4 +66,31 @@ class RegisterController extends Controller
             return redirect('view');
         }
     }
+
+    public function update_employee($empId,Request $request){
+
+        $employee = Employee::find($empId);
+
+        $employee->fullName =$request['fullName'];
+        $employee->email =$request['email'];
+        $employee->address =$request['address'];
+        $employee->doj =$request['doj'];
+        $employee->gender =$request['gender'];
+        $employee->save();
+        
+        return redirect('view');
+    }
+
+    public function delete_employee($empId){
+
+        $employee = Employee::find($empId)->delete();
+            return redirect()->back();
+        
+        // if(!is_null(@$employee)){
+        //     $employee->delete();
+        //     return redirect()->back();
+        // }else{
+        //     return redirect()->back();
+        // }
+    }
 }

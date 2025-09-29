@@ -44,7 +44,7 @@
                     </td>
                     <td>
                         <a href="{{url('/edit',['empId'=>$val['id']])}}" class="btn btn-success">Update</a>
-                        <a href="{{url('/delete')}}" class="btn btn-danger">Delete</a>
+                        <a href="{{url('/delete',['empId'=>$val['id']])}}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
                 @endforeach
