@@ -20,7 +20,20 @@ class RegisterController extends Controller
         //     'emppass' => 'required',
         //     'mobile' => 'required|min:10|max:12',
         // ]);
+
+
+        // To check file and debug
+        // echo '<pre>';
+        // print_r( $request->file('file'));
         
+        // die;
+
+        $filename = $request->file('file')->getClientOriginalName();
+
+        $request->file('file')->storeAs('uploads', $filename);
+
+        
+
         $request->validate([
             'fullName' => 'required',
             'email' => 'required|email',
@@ -37,6 +50,7 @@ class RegisterController extends Controller
         $empolyee->doj =$request['doj'];
         $empolyee->gender =$request['gender'];
         $empolyee->status = 1;
+        $empolyee->image = $filename;
 
         // To save data in our database with the help of this function and this is also know us ORM Function
         $empolyee->save();
@@ -44,9 +58,15 @@ class RegisterController extends Controller
         return redirect('view');
         
     }
-    public function view_employee(){
+    public function view_employee(Request $request){
+        $search = $request->search;
 
-        $employee = Employee::all();
+        if(!empty($search)){
+            $employee = Employee::where('fullName','like',"%$search%")->orWhere('email','like',"%$search%")->paginate(5)->withQueryString();
+        }else{
+            $employee = Employee::paginate(5);
+        }
+
         $data = compact('employee'); //its a laravel function to show multiple table data
 
         // For Debug and check the data 

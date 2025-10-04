@@ -62,7 +62,7 @@
             </form> --}}
 
 
-            <form action="{{url(!empty($employee->id) && $employee->id ? '/update/'.$employee->id : '/register')}}" method="post">
+            <form action="{{url(!empty($employee->id) && $employee->id ? '/update/'.$employee->id : '/register')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="row d-block">
                     <div class="col-md-3">
@@ -108,6 +108,11 @@
                         <input type="radio" name="gender" value="O" {{!empty($employee->gender) && $employee->gender =='O' ? 'checked' :  ''}}>Others
                         
                     </div>
+
+                    <div class="col-3">
+                        <input type="file" name="file" class="form-control">
+                    </div>
+
                     <div class="col-md-3 my-3">
                         <input type="submit" value="Register" class="form-control bg-success text-white" >
                     </div>
