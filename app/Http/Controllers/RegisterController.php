@@ -11,8 +11,8 @@ class RegisterController extends Controller
     public function index() {
         return view('register');
     }
-    public function register(Request $request) {        
-        print_r($request->all());
+    public function register(Request $request) {   
+        // p($request->all());
 
         // $request->validate([
         //     'fullName' => 'required',

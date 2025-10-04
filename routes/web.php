@@ -7,6 +7,7 @@ use App\Http\Controllers\InvokeController;
 use App\Http\Controllers\RegisterController;
 
 use App\Models\Employee;
+use Illuminate\Http\Request;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -51,12 +52,43 @@ Route::get('/test', function() {
     print_r($emp);
 });
 
+// ------------------------------------------------------------------
+
+Route::get('/component-form', function(){
+    return view('comp-form');
+});
+
 Route::get('/form',[RegisterController::class, 'index']);
 Route::post('/register',[RegisterController::class, 'register']);
 Route::get('/view',[RegisterController::class, 'view_employee']);
 Route::get('/edit/{empId}',[RegisterController::class, 'edit_employee']);
 Route::post('/update/{empId}',[RegisterController::class, 'update_employee']);
 Route::get('/delete/{empId}',[RegisterController::class, 'delete_employee']);
+
+
+// Sessions --
+
+Route::get('put-session', function( Request $request){
+    // $request->session()->put('fullname', 'MyAmit Vishwakarma');
+    // $request->session()->put('title', 'Web - Developer');
+    $request->session()->flash('msg', 'Success');
+    session(['channel' => 'AmitSyko', 'profession' => 'blogging']);
+});
+
+Route::get('get-session', function( Request $request){
+    // echo $request->session()->get('fullname'), '<br>';
+    // echo $request->session()->get('title');
+    echo "<pre>";
+    print_r(session()->all());
+});
+
+Route::get('delete-session', function( Request $request){
+    // $request->session()->forget('channel');
+    $request->session()->forget(['channel', 'profession']);
+    // $request->session()->flush('channel'); // flush delete all the datas
+});
+
+// ------------------------------------------------------------------
 
 /*-----For Controller Routes-----*/
 /*
