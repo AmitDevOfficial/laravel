@@ -44,7 +44,6 @@
             <thead>
                 @foreach($employee as $key => $val)
                 <tr>
-                    {{asset('storage/app/private/uploads/'.$val['image'])}}
                     <td>{{++$key}}</td>
                     <td><img src="{{asset('storage/app/private/uploads/'.$val['image'])}}" alt="" width="80"></td>
                     <td>{{$val['fullName']}}</td>

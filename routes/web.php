@@ -5,6 +5,7 @@ use App\Http\Controllers\DemoController;
 use App\Http\Controllers\MyController;
 use App\Http\Controllers\InvokeController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\AuthController;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
@@ -60,7 +61,7 @@ Route::get('/component-form', function(){
 
 Route::get('/form',[RegisterController::class, 'index']);
 Route::post('/register',[RegisterController::class, 'register']);
-Route::get('/view',[RegisterController::class, 'view_employee']);
+Route::get('/view',[RegisterController::class, 'view_employee'])->middleware('check');
 Route::get('/edit/{empId}',[RegisterController::class, 'edit_employee']);
 Route::post('/update/{empId}',[RegisterController::class, 'update_employee']);
 Route::get('/delete/{empId}',[RegisterController::class, 'delete_employee']);
@@ -89,6 +90,11 @@ Route::get('delete-session', function( Request $request){
 });
 
 // ------------------------------------------------------------------
+
+
+Route::get('/',[AuthController::class,'index']);
+Route::get('register',[AuthController::class,'register']);
+Route::post('login',[AuthController::class,'auth']);
 
 /*-----For Controller Routes-----*/
 /*

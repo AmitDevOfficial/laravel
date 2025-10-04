@@ -11,7 +11,15 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
-        //
+
+        // -- Group (Global) Middleware // ✅ GLOBAL middleware ke liye append ya prepend 
+        //  $middleware->append(\App\Http\Middleware\Check::class);
+
+
+         // ✅ Agar alias chahiye (for route use only)
+        $middleware->alias([
+            'check' => \App\Http\Middleware\Check::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //
