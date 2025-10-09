@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use App\Models\User;
 
 class AuthController extends Controller
@@ -29,8 +30,15 @@ class AuthController extends Controller
             if(Auth::attempt($user)){
                 if(Auth::check()){
                     $userDetails = Auth::user();
-                    print_r($userDetails);
+                    // echo "<pre>";
+                    // print_r($userDetails->toArray());
+                    Session::put('name', $userDetails->displayName);
+                    Session::put('userID', $userDetails->id);
+
+                    return redirect('/dashboard');
                 }
+            }else{
+                return redirect()->back();
             }
         }else{
             return redirect()->back();

@@ -6,6 +6,7 @@ use App\Http\Controllers\MyController;
 use App\Http\Controllers\InvokeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
@@ -92,9 +93,11 @@ Route::get('delete-session', function( Request $request){
 // ------------------------------------------------------------------
 
 
-Route::get('/',[AuthController::class,'index']);
+Route::get('/',[AuthController::class,'index'])->middleware('guest');
 Route::get('register',[AuthController::class,'register']);
-Route::post('login',[AuthController::class,'auth']);
+Route::post('login',[AuthController::class,'auth'])->middleware('guest');;
+Route::get('dashboard',[DashboardController::class,'index'])->middleware('userAuth');
+Route::get('logout',[DashboardController::class,'logout']);
 
 /*-----For Controller Routes-----*/
 /*
