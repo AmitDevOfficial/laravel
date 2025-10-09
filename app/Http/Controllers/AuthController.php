@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
 class AuthController extends Controller
@@ -23,7 +24,14 @@ class AuthController extends Controller
         ]);
 
         if($validate){
-
+            $user = $request->only('username','password');
+            $user['status'] = 1;
+            if(Auth::attempt($user)){
+                if(Auth::check()){
+                    $userDetails = Auth::user();
+                    print_r($userDetails);
+                }
+            }
         }else{
             return redirect()->back();
         }
@@ -34,7 +42,7 @@ class AuthController extends Controller
         $pass = "1234";
         // echo Hash::make($pass);
         // die;
-        $user = new Employee;
+        $user = new User;
         $user->displayName = "testing Baby";
         $user->username = "admin";
         $user->email = "testing@gmail.com";

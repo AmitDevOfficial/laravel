@@ -18,6 +18,7 @@ return Application::configure(basePath: dirname(__DIR__))
 
          // ✅ Agar alias chahiye (for route use only)
         $middleware->alias([
+            'auth' => \App\Http\Middleware\Authenticate::class,
             'check' => \App\Http\Middleware\Check::class,
         ]);
     })
