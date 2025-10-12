@@ -80,7 +80,7 @@ class RegisterController extends Controller
         $employee = Employee::find($empId);
 
         if(!is_null($employee)){
-            $data = compact('employee');    
+            $data = compact('employee');   
             return view('register')->with($data);
         }else{
             return redirect('view');

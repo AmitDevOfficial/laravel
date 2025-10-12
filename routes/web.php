@@ -7,6 +7,7 @@ use App\Http\Controllers\InvokeController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\QueryController;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
@@ -100,6 +101,15 @@ Route::get('dashboard',[DashboardController::class,'index'])->middleware('userAu
 Route::get('logout',[DashboardController::class,'logout']);
 
 /*-----For Controller Routes-----*/
+
+/*-----For Query Controller Routes-----*/
+
+Route::get('query',[QueryController::class,'index']);
+
+
+/*-----For Query Controller Routes-----*/
+
+
 /*
 //---Named Routes---
 Route::get('home/introduction-about-blade', function(){
