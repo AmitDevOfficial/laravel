@@ -112,11 +112,44 @@ class QueryController extends Controller
 
 
         //insertOrIgnore - agar hum kisi bhi exits row me value reupdate krne chahe to nhi krpate to error show hota he but usi error se bachne ke liye insertOrIgnore ka user kiya jata he
-        $data = DB::table('contact')->insertOrIgnore(['id'=>3, 'mobile'=>452639871]);   
+        // $data = DB::table('contact')->insertOrIgnore(['id'=>3, 'mobile'=>452639871]);   
 
         //insertGetId -  its same process to insert data and it will return to get last inserted id
 
         // echo "<pre>";
         // print_r($data->toArray());
+
+
+
+
+/*-----------------------------------Update--------------------------------------------------*/
+        // There are three type of updation in laravel--
+
+
+        // Type One
+        // $data = DB::table('employee')->where('emp_id',2777)->update(['fullName'=>'Sanjay Dutt', 'address'=>'Mumbai']);
+
+
+        // Type Two
+        $data = [
+            'fullName' => 'Aullu Arjun',
+            'email' => 'allu@gamil.com',
+            'address' => 'South India'
+        ];
+
+        DB::table('employee')->where('emp_id',2777)->update($data);
+        // echo "<pre>";
+        // print_r($data->toArray());
+
+
+
+
+
+/*-----------------------------------Delete--------------------------------------------------*/
+        //--Delete only one user--
+        // DB::table('employee')->where('emp_id',2777)->delete();
+
+        //--Delete whole table--
+        DB::table('contact')->truncate();
     }
 }
