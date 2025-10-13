@@ -95,7 +95,7 @@ class QueryController extends Controller
 
 
         // rightjoin = right join right table ke sabhi data aaega and left me se sirf wahi data aauega jo empolyee id se match krega            
-        $data = DB::table('employee')->rightjoin('users','employee.emp_id','=','users.emp_id')->get(); 
+        // $data = DB::table('employee')->rightjoin('users','employee.emp_id','=','users.emp_id')->get(); 
 
 
 
@@ -147,9 +147,9 @@ class QueryController extends Controller
 
 /*-----------------------------------Delete--------------------------------------------------*/
         //--Delete only one user--
-        // DB::table('employee')->where('emp_id',2777)->delete();
+        DB::table('employee')->where('emp_id',7535)->delete();
 
         //--Delete whole table--
-        DB::table('contact')->truncate();
+        // DB::table('contact')->truncate();
     }
 }

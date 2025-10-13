@@ -110,6 +110,9 @@ Route::get('query',[QueryController::class,'index']);
 /*-----For Query Controller Routes-----*/
 
 
+
+
+
 /*
 //---Named Routes---
 Route::get('home/introduction-about-blade', function(){
