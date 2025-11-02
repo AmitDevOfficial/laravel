@@ -27,4 +27,20 @@ class EmployeeApiController extends Controller
         // $empolyee->image = $filename;
         $empolyee->save();
     }
+
+    public function delete_data(Request $request){
+        Employee::find($request->id)->delete();
+    }
+
+    public function update_data(Request $request){
+        $empolyee = Employee::find($request->id);
+
+        $empolyee->fullName =$request->fullName;
+        $empolyee->email =$request->email;
+        $empolyee->address =$request->address;
+        $empolyee->doj =$request->doj;
+        $empolyee->gender =$request->gender;
+        $empolyee->status =$request->status;
+        $empolyee->save();
+    }
 }

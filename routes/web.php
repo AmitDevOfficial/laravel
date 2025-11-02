@@ -8,6 +8,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\QueryController;
+use App\Http\Controllers\WorkerController;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
@@ -67,7 +68,7 @@ Route::get('/view',[RegisterController::class, 'view_employee']);/*->middleware(
 Route::get('/edit/{empId}',[RegisterController::class, 'edit_employee']);
 Route::post('/update/{empId}',[RegisterController::class, 'update_employee']);
 Route::get('/delete/{empId}',[RegisterController::class, 'delete_employee']);
-
+Route::get('/worker',[WorkerController::class, 'worker']);
 
 // Sessions --
 
