@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Salary extends Model
+class Technology extends Model
 {
-    protected $table = "salary";
+    protected $table = "technology";
     protected $primaryKey = "id";
 }
