@@ -1,0 +1,131 @@
+Basic Laravel
+Laravel kya hai? PHP se better kyun?
+MVC architecture explain karo.
+Laravel folder structure (app, routes, resources, config)?
+.env file ka purpose?
+Route kya hota hai?
+GET vs POST difference?
+Route aur Controller ka relation?
+Controllers
+Controller kaise banate ho?
+Resource controller kya hota hai?
+Single action controller kya hota hai?
+Database & Migration
+Migration kya hoti hai?
+Migration run/rollback kaise karte ho?
+Seeder kya hota hai?
+Factory kya hoti hai?
+Eloquent ORM kya hai?
+CRUD (Most Important)
+User create ka flow batao (form → controller → model → db)
+Update kaise karte ho?
+Delete kaise karte ho?
+Validation kaise lagate ho?
+Form Request kya hoti hai?
+Eloquent Relationships
+hasOne kya hota hai?
+hasMany kya hota hai?
+belongsTo kya hota hai?
+Example ke saath relationship explain karo.
+Eager loading kya hoti hai?
+Blade
+Blade kya hai?
+@if, @foreach ka use?
+Layouts kaise use karte ho?
+Include aur Extend difference?
+Authentication
+Laravel authentication kaise implement karte ho?
+Middleware kya hota hai?
+Auth middleware ka use?
+APIs
+API route aur web route difference?
+JSON response kaise return karte ho?
+API validation kaise karte ho?
+File Upload
+Image upload kaise karte ho?
+Storage folder ka use?
+Common Practical
+Pagination kaise karte ho?
+Search functionality kaise banayi?
+Joins aur relationships me difference?
+
+1 year experience ke liye focus order:
+CRUD → Validation → Relationships → Auth → API → File Upload → Pagination
+
+Tip: Agar tum 1 year exp bol rahe ho, interviewer expect karega ki tum kam se kam ek complete CRUD project confidently explain kar sako (tables, relationships, validation, APIs).
+Agar chaho toh 
+main top 20 questions with answers bhi de sakta hoon.
+
+Laravel + mysql freshers 
+
+Agar Laravel + MySQL fresher interview target hai, toh focus aur basic hoga: syntax, CRUD, DB basics, relationships.
+
+Ye most-asked fresher questions:
+
+Laravel Basics
+Laravel kya hai?
+Laravel ki features kya hain?
+MVC kya hota hai?
+Route kya hota hai?
+Controller kya hota hai?
+Model kya hota hai?
+View kya hoti hai?
+Blade template kya hai?
+Middleware kya hota hai?
+Migration kya hoti hai?
+CRUD
+CRUD kya hota hai?
+Laravel me data insert kaise karte ho?
+Data fetch kaise karte ho?
+Data update kaise karte ho?
+Data delete kaise karte ho?
+Validation
+Validation kya hoti hai?
+Required validation kaise lagate ho?
+Email validation kaise karte ho?
+Eloquent ORM
+Eloquent kya hai?
+Query Builder kya hai?
+all() aur get() me difference?
+find() aur first() difference?
+Relationships
+One-to-One kya hota hai?
+One-to-Many kya hota hai?
+Many-to-Many kya hota hai?
+belongsTo() aur hasMany() difference?
+Authentication
+Login system kaise banate ho?
+Session kya hota hai?
+Middleware auth kya karta hai?
+MySQL Basics
+Primary key kya hoti hai?
+Foreign key kya hoti hai?
+Index kya hota hai?
+WHERE clause kya hota hai?
+JOIN kya hota hai?
+Types of joins?
+INNER JOIN vs LEFT JOIN?
+GROUP BY kya hota hai?
+ORDER BY kya hota hai?
+LIMIT kya hota hai?
+Normalization kya hoti hai?
+Practical SQL
+Table create ka syntax?
+Insert query likho
+Update query likho
+Delete query likho
+Select query with condition likho
+
+Freshers ke liye sabse important:
+
+MVC flow samjho
+CRUD practical karo
+Form validation
+Basic relationships
+SQL queries (SELECT, JOIN, WHERE)
+
+Interview me aksar practical puchte hain:
+
+“Users table aur posts table hain, relationship kaise banaoge?”
+“Laravel me login kaise implement karoge?”
+“LEFT JOIN aur INNER JOIN ka example do”
